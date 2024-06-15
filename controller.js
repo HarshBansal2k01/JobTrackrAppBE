@@ -31,6 +31,7 @@ const addJob = async (req, res) => {
       message: "Error adding job",
       error: error.message,
     });
+    console.log("addjob", error.message)
   }
 };
 

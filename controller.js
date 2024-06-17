@@ -31,14 +31,16 @@ const addJob = async (req, res) => {
       message: "Error adding job",
       error: error.message,
     });
-    console.log("addjob", error.message)
+    console.log("addjob", error.message);
   }
 };
 
 const getJobs = async (req, res) => {
-  try {
-    const jobs = await UserDetails.find();
-
+  const uid = req.query.uid;
+  // console.log(uid)
+  try { 
+    const jobs = await UserDetails.find({ uid: uid });
+    // console.log(jobs)
     res.status(200).json(jobs);
   } catch (error) {
     res.status(500).json({
@@ -50,7 +52,7 @@ const getJobs = async (req, res) => {
 
 const updateStatus = async (req, res) => {
   const { id } = req.params;
-  console.log(req.params)
+  console.log(req.params);
   const { status } = req.body;
   console.log(req.body);
   try {
@@ -61,9 +63,7 @@ const updateStatus = async (req, res) => {
     );
 
     if (!updatedJob) {
-      return res
-        .status(404)
-        .send("Job with the given ID was not found.", id);
+      return res.status(404).send("Job with the given ID was not found.", id);
     }
 
     res.status(200).send("status updated");

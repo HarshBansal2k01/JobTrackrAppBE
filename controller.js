@@ -102,7 +102,7 @@ const getJobs = async (req, res) => {
 
 const getProcess = async (req, res) => {
   const jobId = req.query.jobId;
-  console.log(jobId);
+  // console.log(jobId);
   try {
     const jobs = await InprocessRounds.find({ jobId: jobId });
     // console.log(jobs)
@@ -167,21 +167,24 @@ const payment = async (req, res) => {
       line_items: req.body.items.map((item) => {
         return {
           price_data: {
-            currency: "int",
+            currency: "inr",
             product_data: {
               name: item.name,
             },
-            unit_amount: item.price * 100,
+            unit_amount: (item.price) * 100,
           },
           quantity: item.quantity,
         };
       }),
-      success_url: "http://localhost:5174/success",
-      canel_url: "http://localhost:5174/success",
-    })
-    res.json({url:session.url})
+      success_url: "http://localhost:5173/success",
+      cancel_url: "http://localhost:5173/cancelled",
+    });
+
+    res.json({ url: session.url });
   } catch (err) {
-    res.status(500).json({error:err.message})
+    console.error("Error creating Stripe session:", err);
+
+    res.status(500).json({ error: err.message });
   }
 };
 

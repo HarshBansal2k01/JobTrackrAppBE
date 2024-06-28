@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const cors = require("cors"); // Import cors
+const cors = require("cors"); 
 require("dotenv").config();
 
 const mongoose = require("mongoose");
@@ -20,7 +20,7 @@ app.use("/", jobRoutes);
 const connectToDatabase = async () => {
   try {
     await mongoose.connect(
-      "mongodb+srv://ihbbro14:H8IzAQuqieNz1aUR@jobtrackrcluster.pazg9fo.mongodb.net/JobTrackr?retryWrites=true&w=majority&appName=JobTrackrCluster",
+      process.env.MONGODB_URL,
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -32,9 +32,7 @@ const connectToDatabase = async () => {
   }
 };
 
-// Connect to the database
 connectToDatabase();
-// Start the server
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });

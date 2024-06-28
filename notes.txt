@@ -1,5 +1,0 @@
-password:- H8IzAQuqieNz1aUR
-username :- ihbbro14
-
-
-mongodb+srv://ihbbro14:H8IzAQuqieNz1aUR@jobtrackrcluster.pazg9fo.mongodb.net/?retryWrites=true&w=majority&appName=JobTrackrCluster

@@ -9,7 +9,6 @@ const {
 const addJob = async (req, res) => {
   try {
     const { uid, company_name, role, salary_range, status, link } = req.body;
-    // Create a new job instance
     const newJob = new UserDetails({
       uid,
       company_name,
@@ -19,10 +18,8 @@ const addJob = async (req, res) => {
       link,
     });
 
-    // Save the job to the database
     const savedJob = await newJob.save();
 
-    // Send a response
     res.status(201).json({
       message: "Job added successfully",
       job: savedJob,
@@ -40,37 +37,30 @@ const addProcess = async (req, res) => {
   try {
     const { uid, jobId, process } = req.body;
 
-    // Find the existing document
     let existingDocument = await InprocessRounds.findOne({ jobId });
 
     if (existingDocument) {
-      // If document exists, update the process field
       if (existingDocument.process) {
         existingDocument.process += `,${process}`;
       } else {
         existingDocument.process = process;
       }
 
-      // Save the updated document
       const updatedDocument = await existingDocument.save();
 
-      // Send a response
       res.status(200).json({
         message: "Process updated successfully",
         process: updatedDocument,
       });
     } else {
-      // If no document exists, create a new one
       const newProcess = new InprocessRounds({
         uid,
         jobId,
         process,
       });
 
-      // Save the new document
       const savedProcess = await newProcess.save();
 
-      // Send a response
       res.status(201).json({
         message: "Process added successfully",
         process: savedProcess,
@@ -87,10 +77,8 @@ const addProcess = async (req, res) => {
 
 const getJobs = async (req, res) => {
   const uid = req.query.uid;
-  // console.log(uid)
   try {
     const jobs = await UserDetails.find({ uid: uid });
-    // console.log(jobs)
     res.status(200).json(jobs);
   } catch (error) {
     res.status(500).json({
@@ -102,10 +90,8 @@ const getJobs = async (req, res) => {
 
 const getProcess = async (req, res) => {
   const jobId = req.query.jobId;
-  // console.log(jobId);
   try {
     const jobs = await InprocessRounds.find({ jobId: jobId });
-    // console.log(jobs)
     res.status(200).json(jobs);
   } catch (error) {
     res.status(500).json({
@@ -171,7 +157,7 @@ const payment = async (req, res) => {
             product_data: {
               name: item.name,
             },
-            unit_amount: (item.price) * 100,
+            unit_amount: item.price * 100,
           },
           quantity: item.quantity,
         };

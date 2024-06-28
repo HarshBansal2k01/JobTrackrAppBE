@@ -15,7 +15,6 @@ const jobRoutes = require("./routes");
 
 app.use("/", jobRoutes);
 
-// yoyoyoyoyoy
 
 const connectToDatabase = async () => {
   try {

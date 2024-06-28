@@ -162,8 +162,8 @@ const payment = async (req, res) => {
           quantity: item.quantity,
         };
       }),
-      success_url: "http://localhost:5173/success",
-      cancel_url: "http://localhost:5173/cancelled",
+      success_url: "https://job-trackr-3a457.web.app/success" || "https://job-trackr-3a457.firebaseapp.com/success",
+      cancel_url: "https://job-trackr-3a457.web.app/cancelled" || "https://job-trackr-3a457.firebaseapp.com/cancelled",
     });
 
     res.json({ url: session.url });

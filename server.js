@@ -11,7 +11,7 @@ app.use(cors());
 
 app.use(express.json());
 
-const jobRoutes = require("./routes");
+const jobRoutes = require("./routes");  
 
 app.use("/", jobRoutes);
 

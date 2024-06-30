@@ -162,7 +162,7 @@ const payment = async (req, res) => {
           quantity: item.quantity,
         };
       }),
-      success_url: "https://jobtrackrapp.netlify.app/success" ,
+      success_url: "https://github.com/HarshBansal2k01" ,
       cancel_url:  "https://jobtrackrapp.netlify.app/cancelled",
     });
 

@@ -162,8 +162,8 @@ const payment = async (req, res) => {
           quantity: item.quantity,
         };
       }),
-      success_url: "http://localhost:5173/success" ,
-      cancel_url:  "http://localhost:5173/cancelled",
+      success_url: "https://jobtrackrapp.netlify.app/success" ,
+      cancel_url:  "https://jobtrackrapp.netlify.app/cancelled",
     });
 
     res.json({ url: session.url });

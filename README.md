@@ -1,5 +1,3 @@
-
-```markdown
 # JobTracker 🚀
 
 ## Overview 🎯
@@ -43,23 +41,16 @@ This helps job seekers not to lose track of their applications.
 - **MongoDB** 🍃
 - **Firebase (auth)** 🔐
 
-### Hosting
-
-- **Frontend 1**: [Firebase](https://job-trackr-3a457.firebaseapp.com/) 🔥
-- **Frontend 2**: [Firebase](https://job-trackr-3a457.web.app/) 🚀
-- **Backend 1**: [Render](https://jobtrackrapp.onrender.com/) 🚀
-
-
-## Live Demo 🌐
+### Hosting - Live Demo 🌐
 
 Check out the live project here:
 
-- [JobTracker on Firebase](https://job-trackr-3a457.firebaseapp.com/)
-- [JobTracker Alternative Link](https://job-trackr-3a457.web.app/)
+- **Frontend Netlify**: [Jobtrackr site](https://jobtrackrapp.netlify.app/) 🔥
+- **Backend Render**: [Jobtrackr Backend site](https://jobtrackrapp.onrender.com/) 🚀
 
-## Goto Frontend Repo 🎯
+## Goto Backend Repo 🎯
 
-- [Frontend](https://github.com/HarshBansal2k01/JobTrackrApp)
+- [Backend](https://github.com/HarshBansal2k01/JobTrackrAppBE)
 
 ## How to Use 📚
 
@@ -95,4 +86,3 @@ Feel free to reach out if you have any questions or suggestions!
 
 Made with ❤️ by [Harsh Bansal](https://github.com/HarshBansal2k01)
 ```
-
